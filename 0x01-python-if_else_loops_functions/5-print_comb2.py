@@ -1,4 +1,8 @@
 #!/usr/bin/python3
 # 5-print_comb2.py
-for num in range(100):
-    print(f"{num:02d}", end=", " if num < 99 else "\n")
+# a program that prints numbers from 0 to 99
+for i in range(0, 100):
+    if i == 99:
+        print(f"{i}")
+    else:
+        print(f"{i:02d}", end=", ")
