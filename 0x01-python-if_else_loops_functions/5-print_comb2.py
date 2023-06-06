@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 5-print_comb2.py
+# print_comb2.py
 # a program that prints numbers from 0 to 99
 for i in range(0, 100):
     if i == 99:
