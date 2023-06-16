@@ -15,6 +15,7 @@ def to_subtract(list_num):
 
     return (max_num - sub)
 
+
 def roman_to_int(roman_string):
     if not roman_string:
         return 0
