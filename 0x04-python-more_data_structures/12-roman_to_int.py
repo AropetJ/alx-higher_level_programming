@@ -3,7 +3,9 @@
 # by: Aropet_Joel
 
 def to_subtract(list_num):
-    """A function def roman_to_int(roman_string): that converts a Roman numeral to an integer."""
+    """A function def roman_to_int(roman_string): that converts
+    a Roman numeral to an integer.
+    """
     max_num = max(list_num)
     sub = 0
 
