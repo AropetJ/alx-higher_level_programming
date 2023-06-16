@@ -3,7 +3,9 @@
 # by: Aropet_Joel
 
 def square_matrix_simple(matrix=[]):
-    """A function that computes the square value of all integers of a matrix."""
+    """A function that computes the square value of
+    all integers of a matrix.
+    """
     nw_mtrx = matrix.copy()
 
     for j in range(len(matrix)):
