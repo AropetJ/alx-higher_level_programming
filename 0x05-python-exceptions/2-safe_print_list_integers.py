@@ -1,13 +1,11 @@
 #!/usr/bin/python3
-# 2-safe_print_list_integers.py
 
 def safe_print_list_integers(my_list=[], x=0):
-    """A function that prints the first x elements of a list
-       and only integers.
+    """A function that prints the first x elements of a list and only integers.
 
     Args:
         my_list (list): The list who's elements are to be printed.
-        x (int): Represents the number of elements to access in my_list.
+        x (integer): Represents the number of elements to access in my_list.
 
     Returns:
         The real number of integers printed.
