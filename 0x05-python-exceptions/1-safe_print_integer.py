@@ -12,8 +12,7 @@ def safe_print_integer(value):
         Otherwise, returns false.
     """
     try:
-        i = "{:d}"
-        print(i.format(value))
+        print("{:d}".format(value))
         return (True)
     except (TypeError, ValueError):
         return (False)
