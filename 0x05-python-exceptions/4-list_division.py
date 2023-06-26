@@ -1,21 +1,21 @@
 #!/usr/bin/python3
-
+# 4-list_division.py
 
 def list_division(my_list_1, my_list_2, list_length):
-    """Divides two lists element by element.
+    """A function that divides element by element 2 lists.
 
     Args:
-        my_list_1 (list): The first list.
-        my_list_2 (list): The second list.
-        list_length (int): The number of elements to divide.
+        my_list_1 (list): First list.
+        my_list_2 (list): Second list.
+        list_length (int): The number of integers in the lists to divide.
 
     Returns:
-        A new list of length list_length containing all the divisions.
+        A new list (length = list_length) with all divisions.
     """
-    new_list = []
-    for i in range(0, list_length):
+    temp_list = []
+    for j in range(0, list_length):
         try:
-            div = my_list_1[i] / my_list_2[i]
+            div = my_list_1[j] / my_list_2[j]
         except TypeError:
             print("wrong type")
             div = 0
@@ -26,5 +26,5 @@ def list_division(my_list_1, my_list_2, list_length):
             print("out of range")
             div = 0
         finally:
-            new_list.append(div)
-    return (new_list)
+            temp_list.append(div)
+    return (temp_list)
