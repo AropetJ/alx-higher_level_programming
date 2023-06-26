@@ -20,7 +20,7 @@ def safe_function(fct, *args):
     try:
         result = fct(*args)
         return (result)
-    except (TypeError, ValueError,ZeroDivisionError, IndexError):
+    except (TypeError, ValueError, ZeroDivisionError, IndexError):
         i = "Exception: {}"
         print(i.format(sys.exc_info()[1]), file=sys.stderr)
         return (None)
