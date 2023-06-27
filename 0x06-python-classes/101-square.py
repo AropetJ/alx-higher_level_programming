@@ -58,14 +58,13 @@ class Square():
             print(" " * self.__position[0] + "#" * self.__size)
 
     def __str__(self):
-        """Define the print() representation of a Square."""
-        output = ""
-
+        """Defines the print() representation of a square."""
+        result = ""
         if self.__size != 0:
-            output += "\n" * self.__position[1]
-
-        for _ in range(self.__size):
-            output += " " * self.__position[0] + "#" * self.__size + "\n"
-        
-        return output
-
+            result += "\n" * self.__position[1]
+        for i in range(self.__size):
+            result += " " * self.__position[0]
+            result += "#" * self.__size
+            if i != self.__size - 1:
+                result += "\n"
+        return result
