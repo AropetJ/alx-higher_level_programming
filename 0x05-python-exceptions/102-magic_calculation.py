@@ -24,6 +24,6 @@ def magic_calculation(a, b):
         else:
             result += a ** b / 2
 
-    except:
+    except Exception as e:
         result = b + a
     return (result)
