@@ -6,6 +6,7 @@
 class Rectangle:
     """ An empty class Rectangle that defines a rectangle"""
     number_of_instances = 0
+    print_symbol = '#'
 
     def __init__(self, width=0, height=0):
         """Initializing the attributes of a rectangle
@@ -16,7 +17,7 @@ class Rectangle:
         """
         self.height = height
         self.width = width
-        self.print_symbol = '#'
+        self.print_symbol = Rectangle.print_symbol
         Rectangle.number_of_instances += 1
 
     @property
