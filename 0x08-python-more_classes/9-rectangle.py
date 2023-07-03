@@ -60,16 +60,6 @@ class Rectangle:
     @classmethod
     def square(cls, size=0):
         """ Returns a new Rectangle instance with width == height == size"""
-        try:
-            size = int(size)
-            if size < 0:
-                raise ValueError("size height must be >= 0")
-        except (TypeError, ValueError):
-            raise TypeError("size must be an integer")
-
-        if size == 0:
-            return (cls)
-
         return (cls(size, size))
 
     def __repr__(self):
