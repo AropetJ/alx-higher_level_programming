@@ -67,6 +67,9 @@ class Rectangle:
         except (TypeError, ValueError):
             raise TypeError("size must be an integer")
 
+        if size == 0:
+            return (cls)
+
         return (cls(size, size))
 
     def __repr__(self):
