@@ -24,30 +24,3 @@ my_rectangle_3.print_symbol = ["C", "is", "fun!"]
 print(my_rectangle_3)
 
 print("--")
-
-guillaume@ubuntu:~/0x08$ ./7-main.py
-########
-########
-########
-########
---
-&&&&&&&&
-&&&&&&&&
-&&&&&&&&
-&&&&&&&&
---
-##
---
-CC
---
-CCCCCCC
-CCCCCCC
-CCCCCCC
---
-['C', 'is', 'fun!']['C', 'is', 'fun!']['C', 'is', 'fun!']['C', 'is', 'fun!']['C', 'is', 'fun!']['C', 'is', 'fun!']['C', 'is', 'fun!']
-['C', 'is', 'fun!']['C', 'is', 'fun!']['C', 'is', 'fun!']['C', 'is', 'fun!']['C', 'is', 'fun!']['C', 'is', 'fun!']['C', 'is', 'fun!']
-['C', 'is', 'fun!']['C', 'is', 'fun!']['C', 'is', 'fun!']['C', 'is', 'fun!']['C', 'is', 'fun!']['C', 'is', 'fun!']['C', 'is', 'fun!']
---
-Bye rectangle...
-Bye rectangle...
-Bye rectangle...
