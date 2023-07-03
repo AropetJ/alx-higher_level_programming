@@ -15,7 +15,7 @@ def is_safe(board, row, col):
 
 
 def solve_nqueens(n):
-    """Initialize an empty board""""
+    """Initialize an empty board"""
     board = [-1] * n
     solutions = []
 
