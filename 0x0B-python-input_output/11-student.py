@@ -1,3 +1,8 @@
+#!/usr/bin/python3
+"""Defines a class Student
+"""
+
+
 class Student:
     """initialise the class Student"""
 
@@ -35,4 +40,4 @@ class Student:
             attributes.
         """
         for k, v in json.items():
-            setattr(self, k, v)
+            self.__dict__[k] = v
