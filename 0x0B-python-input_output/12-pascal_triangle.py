@@ -13,10 +13,18 @@ def pascal_triangle(n):
         triangles: returns a list of lists of integers
                    representing the Pascal’s triangle of n
     """
+    if n <= 0:
+        return []
+
     triangles = [[1]]
-    while len(triangles) != n:
-        tri = triangles[-1]
-        tmp = [1] + [tri[i] + tri[i + 1] \
-                     for i in range(len(tri) - 1)] + [1]
-        triangles.append(tmp)
+    for _ in range(1, n):
+        prev_row = triangles[-1]
+        curr_row = [1]
+
+        for i in range(len(prev_row) - 1):
+            curr_row.append(prev_row[i] + prev_row[i + 1])
+
+        curr_row.append(1)
+        triangles.append(curr_row)
+
     return triangles
