@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # base.py
+""" Defines a class Base """
 import json
 import turtle
 import csv
@@ -118,13 +119,16 @@ class Base():
         filename = cls.__name__ + ".csv"
 
         with open(filename, 'w', newline='') as file:
-            writer = csv.writer(file)
-            for obj in list_objs:
+            if list_objs is None or list_objs == []:
+                file.write("[]")
+            else:
                 if cls.__name__ == "Rectangle":
-                    writer.writerow([obj.id, obj.width,
-                                     obj.height, obj.x, obj.y])
-                elif cls.__name__ == "Square":
-                    writer.writerow([obj.id, obj.size, obj.x, obj.y])
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(file, fieldnames=fieldnames)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
 
     @classmethod
     def load_from_file_csv(cls):

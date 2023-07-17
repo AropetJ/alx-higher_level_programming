@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # rectangle.py
+""" Defines a class Rectangle """
 from models.base import Base
 
 
@@ -22,18 +23,20 @@ class Rectangle(Base):
             ValueError: If either of x or y < 0.
         """
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
+        """ Gets the width of the rectangle """
         return (self.__width)
 
     @width.setter
     def width(self, value):
-        if not isinstance(value, int):
+        """ Sets the width of the rectangle """
+        if type(value) != int:
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
@@ -41,11 +44,13 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """ Gets the height of the rectangle """
         return (self.__height)
 
     @height.setter
     def height(self, value):
-        if not isinstance(value, int):
+        """ Sets the width of the rectangle """
+        if type(value) != int:
             raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
@@ -53,11 +58,13 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """ Gets the cordinate x of the rectangle """
         return (self.__x)
 
     @x.setter
     def x(self, value):
-        if not isinstance(value, int):
+        """ Sets the cordinate x of the rectangle """
+        if type(value) != int:
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -65,11 +72,13 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """ Sets the cordinate y of the rectangle """
         return (self.__y)
 
     @y.setter
     def y(self, value):
-        if not isinstance(value, int):
+        """ Sets the cordinate y of the rectangle"""
+        if type(value) != int:
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
@@ -77,14 +86,14 @@ class Rectangle(Base):
 
     def area(self):
         """ A function that returns the area of a rectangle """
-        return (self.__height * self.__width)
+        return (self.height * self.width)
 
     def display(self):
         """ A function that prints the rectangle using the '#'"""
-        for _ in range(self.__y):
+        for _ in range(self.y):
             print()
-        for _ in range(self.__height):
-            print(" " * self.__x + "#" * self.__width)
+        for _ in range(self.height):
+            print(" " * self.x + "#" * self.width)
 
     def __str__(self):
         """ A human readable representation of a class """
@@ -103,30 +112,39 @@ class Rectangle(Base):
                 - 5th argument represents y attribute
             **kwargs (dict): New key/value pairs of attributes.
         """
-        if args:
-            num_args = len(args)
-            if num_args >= 1:
-                self.id = args[0]
-            if num_args >= 2:
-                self.__width = args[1]
-            if num_args >= 3:
-                self.__height = args[2]
-            if num_args >= 4:
-                self.__x = args[3]
-            if num_args >= 5:
-                self.__y = args[4]
-        else:
+        if args and len(args) != 0:
+            num_args = 0
+            for i in args:
+                if num_args == 0:
+                    if i is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = i
+                elif num_args == 1:
+                    self.width = i
+                elif num_args == 2:
+                    self.height = i
+                elif num_args == 3:
+                    self.x = i
+                elif num_args == 4:
+                    self.y = i
+                num_args += 1
+
+        elif kwargs and len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key == "id":
-                    self.id = value
+                    if value is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = value
                 elif key == "width":
-                    self.__width = value
+                    self.width = value
                 elif key == "height":
-                    self.__height = value
+                    self.height = value
                 elif key == "x":
-                    self.__x = value
+                    self.x = value
                 elif key == "y":
-                    self.__y = value
+                    self.y = value
 
     def to_dictionary(self):
         """ A function that returns a dictionary representation of

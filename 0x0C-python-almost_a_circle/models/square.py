@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # square.py
+""" Defines a class Square """
 from models.rectangle import Rectangle
 
 
@@ -38,22 +39,30 @@ class Square(Rectangle):
                 - 4th argument represents y attribute
             **kwargs (dict): New key/value pairs of attributes.
         """
-        if args:
-            num_args = len(args)
-            if num_args >= 1:
-                self.id = args[0]
-            if num_args >= 2:
-                self.size = args[1]
-            if num_args >= 3:
-                self.x = args[2]
-            if num_args >= 4:
-                self.y = args[3]
-        else:
+        if args and len(args) != 0:
+            num_args = 0
+            for i in args:
+                if num_args == 0:
+                    if i is None:
+                        self.__init__(self.size, self.x, self.y)
+                    else:
+                        self.id = i
+                elif num_args == 1:
+                    self.size = i
+                elif num_args == 2:
+                    self.x = i
+                elif num_args == 3:
+                    self.y = i
+                num_args += 1
+        elif kwargs and len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key == "id":
-                    self.id = value
+                    if value is None:
+                        self.__init__(self.size, self.x, self.y)
+                    else:
+                        self.id = value
                 elif key == "size":
-                    self.width = value
+                    self.size = value
                 elif key == "x":
                     self.x = value
                 elif key == "y":
