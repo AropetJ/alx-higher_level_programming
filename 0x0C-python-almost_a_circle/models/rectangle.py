@@ -7,7 +7,20 @@ class Rectangle(Base):
     """ My rectangle class """
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """ Initialising class attributes """
+        """ Initialising class attributes
+
+        Args:
+            width (int): The width of the Rectangle.
+            height (int): The height of the Rectangle.
+            x (int): The x coordinate of the Rectangle.
+            y (int): The y coordinate of the Rectangle.
+            id (int): The identity of the Rectangle.
+        Raises:
+            TypeError: If either of width or height is not an int.
+            ValueError: If either of width or height <= 0.
+            TypeError: If either of x or y is not an int.
+            ValueError: If either of x or y < 0.
+        """
         super().__init__(id)
         self.__width = width
         self.__height = height
@@ -22,7 +35,7 @@ class Rectangle(Base):
     def width(self, value):
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
-        elif value <= 0:
+        if value <= 0:
             raise ValueError("width must be > 0")
         self.__width = value
 
@@ -34,7 +47,7 @@ class Rectangle(Base):
     def height(self, value):
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
-        elif value <= 0:
+        if value <= 0:
             raise ValueError("height must be > 0")
         self.__height = value
 
@@ -46,7 +59,7 @@ class Rectangle(Base):
     def x(self, value):
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
-        elif value < 0:
+        if value < 0:
             raise ValueError("x must be >= 0")
         self.__x = value
 
@@ -58,23 +71,38 @@ class Rectangle(Base):
     def y(self, value):
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
-        elif value < 0:
+        if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
 
     def area(self):
+        """ A function that returns the area of a rectangle """
         return (self.__height * self.__width)
 
     def display(self):
+        """ A function that prints the rectangle using the '#'"""
         for _ in range(self.__y):
             print()
         for _ in range(self.__height):
             print(" " * self.__x + "#" * self.__width)
 
     def __str__(self):
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+        """ A human readable representation of a class """
+        return (f"[Rectangle] ({self.id}) {self.x}/{self.y} - "
+                f"{self.width}/{self.height}")
 
     def update(self, *args, **kwargs):
+        """A function that in none and keyword arguments.
+
+        Args:
+            *args (ints): New attribute values.
+                - 1st argument represents id attribute
+                - 2nd argument represents width attribute
+                - 3rd argument represent height attribute
+                - 4th argument represents x attribute
+                - 5th argument represents y attribute
+            **kwargs (dict): New key/value pairs of attributes.
+        """
         if args:
             num_args = len(args)
             if num_args >= 1:
@@ -101,6 +129,9 @@ class Rectangle(Base):
                     self.__y = value
 
     def to_dictionary(self):
+        """ A function that returns a dictionary representation of
+            a rectangle
+        """
         return ({
             "x": self.x,
             "y": self.y,
