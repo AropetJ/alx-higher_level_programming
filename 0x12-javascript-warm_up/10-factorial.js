@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-function computeFactorial(n) {
+function computeFactorial (n) {
   if (isNaN(n)) {
     return 1;
   }
