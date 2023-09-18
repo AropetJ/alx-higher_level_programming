@@ -24,7 +24,12 @@ try:
 
     cursor = connection.cursor()
 
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id"
+    query = """"
+        SELECT *
+        FROM states
+        WHERE BINARY name = %s
+        ORDER BY id
+    """
 
     cursor.execute(query, (state_name,))
 

@@ -22,7 +22,15 @@ try:
 
     cursor = connection.cursor()
 
-    cursor.execute("SELECT * FROM states WHERE BINARY name LIKE 'N%' ORDER BY id")
+    query = """
+        SELECT *
+        FROM states
+        WHERE BINARY
+        name LIKE 'N%'
+        ORDER BY id
+    """
+
+    cursor.execute(query)
 
     results = cursor.fetchall()
     for row in results:
