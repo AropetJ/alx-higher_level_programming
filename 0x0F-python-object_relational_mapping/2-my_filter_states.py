@@ -24,7 +24,7 @@ try:
 
     cursor = connection.cursor()
 
-    query = """"
+    query = """
         SELECT *
         FROM states
         WHERE BINARY name = %s
