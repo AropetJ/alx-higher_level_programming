@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 
-"""Define the State class with a relationship to City objects
+"""Define the State class with a relationship to City
 """
 
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from model_city import Base
+from sqlalchemy.ext.declarative import declarative_base
+
+
+Base = declarative_base()
 
 
 class State(Base):
