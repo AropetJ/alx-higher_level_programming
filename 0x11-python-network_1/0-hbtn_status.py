@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-# fetches website
+# A script that fetches https://alx-intranet.hbtn.io/status
 import urllib.request
 
 if __name__ == "__main__":
-    with urllib.request.urlopen("https://intranet.hbtn.io/status") as response:
+    url = 'https://alx-intranet.hbtn.io/status'
+    with urllib.request.urlopen(url) as response:
         content = response.read()
-        url = content.decode('utf-8')
+        utf8_content = content.decode('utf-8')
         typed = response.info()
         print("Body response:")
         print("\t- type: {}".format(type(content)))
         print("\t- content: {}".format(content))
-        print("\t- utf8 content: {}".format(url))
+        print("\t- utf8 content: {}".format(utf8_content))
