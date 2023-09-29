@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # A script that fetches a url
 
+
 if __name__ == "__main__":
     import urllib.request
 
