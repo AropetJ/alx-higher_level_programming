@@ -6,8 +6,11 @@ import requests
 from sys import argv
 
 if __name__ == "__main__":
+    user = argv[1]
+    paswd = argv[2]
+    auth = (user, paswd)
     try:
-        response = requests.get('https://api.github.com/user', auth=(argv[1], argv[2]))
+        response = requests.get('https://api.github.com/user', auth=auth)
         print(response.json().get('id'))
-    except:
+    except ValueError:
         print("None")
