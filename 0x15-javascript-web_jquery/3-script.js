@@ -1,4 +1,4 @@
 function func1 () {
-    $("header").addClass('red');
+  $('header').addClass('red');
 }
 $('DIV#red_header').click(func1);

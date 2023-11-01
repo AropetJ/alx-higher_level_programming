@@ -1,4 +1,4 @@
 function func1 (data) {
-    $('DIV#character').text(data.name)
+  $('DIV#character').text(data.name);
 }
-$.get('https://swapi-api.alx-tools.com/api/people/5/?format=json',func1);
+$.get('https://swapi-api.alx-tools.com/api/people/5/?format=json', func1);
